@@ -1,1 +1,3 @@
-console.log('bacon');
+var counter = require('./count');
+
+console.log(counter(['shaun', 'crystal', 'ryan']));
