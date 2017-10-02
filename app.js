@@ -1,3 +1,6 @@
-var counter = require('./count');
+var fs = require('fs');
 
-console.log(counter(['shaun', 'crystal', 'ryan']));
+fs.readFile('readMe.txt', 'utf8', function(err, data){
+	fs.writeFile('writeMe.txt', data);
+});
+
