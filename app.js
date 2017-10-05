@@ -1,9 +1,16 @@
-var http = require('http');
+var express = require('express');
+var todoController = require('./controllers/todoController');
+var app = express();
 
-var server = http.createServer(function(req, res){
-    res.writeHead(200, {'Content-Type' : 'text/plain'});
-    res.end('Hey Law');
-});
+// set up template engine
+app.set('view engine', 'ejs');
 
-server.listen(3000, '127.0.0.1');
-console.log('yo dawgs, now listening to hip hop');
+// static files 
+app.use(express.static('./public'));
+
+// fire controllers
+todoController(app)
+
+// listen to port
+app.listen(3000);
+console.log('You are listening to port 3000');
